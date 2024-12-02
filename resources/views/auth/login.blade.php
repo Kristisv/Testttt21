@@ -2,18 +2,22 @@
 
 @section('content')
     <div class="container">
-        <h1>Prisijungimas</h1>
+        <h1 class="title">{{ __('messages.login_section') }}</h1>
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <div class="form-group">
-                <label for="email">El. paštas</label>
-                <input type="email" name="email" id="email" class="form-control" required>
+            <div class="field">
+                <label for="email" class="label">{{ __('messages.email') }}</label>
+                <div class="control">
+                    <input type="email" name="email" id="email" class="input" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="password">Slaptažodis</label>
-                <input type="password" name="password" id="password" class="form-control" required>
+            <div class="field">
+                <label for="password" class="label">{{ __('messages.password') }}</label>
+                <div class="control">
+                    <input type="password" name="password" id="password" class="input" required>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Prisijungti</button>
+            <button type="submit" class="button is-primary">{{ __('messages.login') }}</button>
         </form>
     </div>
 @endsection

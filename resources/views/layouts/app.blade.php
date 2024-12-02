@@ -3,50 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konferencijos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>{{ __('messages.conferences') }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Konferencijos</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+<nav class="navbar is-dark">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="#">{{ __('messages.conferences') }}</a>
+        <button class="button navbar-burger" data-target="navbarNav" aria-label="menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Pagrindinis</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('conferences.index') }}">Konferencijos</a>
-                </li>
+    </div>
+    <div id="navbarNav" class="navbar-menu">
+        <div class="navbar-end">
+            <a class="navbar-item" href="{{ route('home') }}">{{ __('messages.home') }}</a>
+            <a class="navbar-item" href="{{ route('conferences.index') }}">{{ __('messages.conferences') }}</a>
 
-                @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Prisijungti</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Registruotis</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btn btn-link nav-link">Atsijungti</button>
-                        </form>
-                    </li>
-                @endguest
-            </ul>
+            @guest
+                <a class="navbar-item" href="{{ route('login') }}">{{ __('messages.login') }}</a>
+                <a class="navbar-item" href="{{ route('register') }}">{{ __('messages.register') }}</a>
+            @else
+                <div class="navbar-item">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="button is-link is-light">{{ __('messages.logout') }}</button>
+                    </form>
+                </div>
+            @endguest
         </div>
     </div>
 </nav>
-
 
 <div class="container">
     @yield('content')
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bulma@0.9.4/js/bulma.bundle.min.js"></script>
 </body>
 </html>

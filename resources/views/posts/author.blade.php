@@ -1,8 +1,10 @@
 @extends('app')
 
-@section('title', 'Straipsnio Autorius')
+@section('title', __('messages.post_author'))
 
 @section('content')
-    <h1>{{ $post['title'] }}</h1>
-    <p>Autorius: {{ $post['author']['first_name'] }} {{ $post['author']['last_name'] }}</p>
+    <div class="container my-5">
+        <h1 class="title has-text-centered">{{ $post['title'] }}</h1>
+        <p class="subtitle">{{ __('messages.author') }}: {{ $post['author']['first_name'] }} {{ $post['author']['last_name'] }}</p>
+    </div>
 @endsection
