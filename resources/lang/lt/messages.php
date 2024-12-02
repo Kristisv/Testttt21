@@ -32,7 +32,7 @@ return [
     'edit' => 'Redaguoti',
     'view' => 'Peržiūrėti',
     'delete' => 'Ištrinti',
-    'create_conference' => 'Sukurti naują konferenciją',
+    'create_conference' => 'Sukurti naują konferencią',
     'create_new_conference' => 'Sukurti naują konferenciją',
     'conference_details' => 'Konferencijos peržiūra',
     'back_to_list' => 'Atgal į sąrašą',
